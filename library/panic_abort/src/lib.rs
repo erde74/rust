@@ -41,7 +41,7 @@ pub unsafe extern "C" fn __rust_start_panic(_payload: *mut &mut dyn BoxMeUp) -> 
     abort();
 
     cfg_if::cfg_if! {
-        if #[cfg(unix)] {
+        if #[cfg(any(unix, target_os = "plan9"))] {
             unsafe fn abort() -> ! {
                 libc::abort();
             }

@@ -47,7 +47,7 @@ mod realloc_fallback {
         }
     }
 }
-#[cfg(any(unix, target_os = "redox"))]
+#[cfg(any(unix, target_os = "redox", target_os = "plan9"))]
 mod platform {
     extern crate libc;
     use core::ptr;
@@ -97,7 +97,8 @@ mod platform {
     #[cfg(any(target_os = "android",
               target_os = "hermit",
               target_os = "redox",
-              target_os = "solaris"))]
+              target_os = "solaris",
+              target_os = "plan9"))]
     #[inline]
     unsafe fn aligned_malloc(layout: &Layout) -> *mut u8 {
         // On android we currently target API level 9 which unfortunately
@@ -122,7 +123,8 @@ mod platform {
     #[cfg(not(any(target_os = "android",
                   target_os = "hermit",
                   target_os = "redox",
-                  target_os = "solaris")))]
+                  target_os = "solaris",
+                  target_os = "plan9")))]
     #[inline]
     unsafe fn aligned_malloc(layout: &Layout) -> *mut u8 {
         let mut out = ptr::null_mut();

@@ -15,6 +15,8 @@ fn main() {
         llvm_libunwind::compile();
     } else if target.contains("x86_64-fortanix-unknown-sgx") {
         llvm_libunwind::compile();
+    } else if target.contains("plan9") {
+        llvm_libunwind::compile();
     } else if target.contains("linux") {
         // linking for Linux is handled in lib.rs
         if target.contains("musl") {

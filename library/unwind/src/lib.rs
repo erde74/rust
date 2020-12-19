@@ -70,3 +70,7 @@ extern "C" {}
 #[cfg(all(target_vendor = "fortanix", target_env = "sgx"))]
 #[link(name = "unwind", kind = "static-nobundle")]
 extern "C" {}
+
+#[cfg(all(target_os = "plan9"))]
+#[link(name = "unwind", kind = "static")]
+extern "C" {}

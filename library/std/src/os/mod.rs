@@ -70,6 +70,8 @@ pub mod macos;
 pub mod netbsd;
 #[cfg(target_os = "openbsd")]
 pub mod openbsd;
+#[cfg(target_os = "plan9")]
+pub mod plan9;
 #[cfg(target_os = "redox")]
 pub mod redox;
 #[cfg(target_os = "solaris")]
